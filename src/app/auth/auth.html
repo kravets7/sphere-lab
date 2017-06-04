@@ -1,0 +1,21 @@
+<div id="login">
+    <div class="wrapper">
+        <div class="form padded">
+            <p><strong>Login in to your account</strong></p>
+            <br>
+            <form name="loginform" ng-submit="login($event)">
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <input type="email" name="user" ng-model="email" required="required" autofocus>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input class="padding-button" name="pass" type="password" ng-model="password" required="required">
+                </md-input-container>
+                <button class="md-button md-small md-ink-ripple md-raised md-primary" type="submit">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

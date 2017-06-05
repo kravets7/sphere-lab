@@ -39,6 +39,7 @@
 
 html {
   font-family: 'Roboto Slab', serif;
+  background-color: #E0E0E0;
 }
 
 [layout=row] {
@@ -246,6 +247,7 @@ md-input-container .md-errors-spacer {
 /*# sourceMappingURL=custom.css.map */
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #E0E0E0;
 }
 
 h1 {

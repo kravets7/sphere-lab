@@ -6,25 +6,41 @@
         .service('RestService', RestService);
 
     /** @ngInject */
-    function RestService($http, LocalStorage) {
+    function RestService($http, LocalStorage, Upload) {
         var endPoint = 'https://52.50.129.215:8091/api/v1';
         return {
             login: function (login, password) {
-                return $http.post(endPoint + 'login/', {
+                return $http.post(endPoint + '/login/', {
                     "email": login,
                     "password": password,
                     "deviceUId": "sdgfddfghdfghjfdgh3454yh",
                     "deviceToken": ""
                 })
             },
-            createPost: function (key, data) {
-                localStorage.setItem(key, JSON.stringify(data));
+            createPost: function (message, url) {
+                return $http.post(endPoint + '/post/59255e177672689c538bccac/', {
+                    "message": message,
+                    "url": url,
+                    "postUsers": []
+                }, {
+                    headers: {'x-access-token': LocalStorage.getItem('token')}
+                })
             },
             getUser: function (key) {
-                localStorage.removeItem(key);
+                return $http.get(endPoint + '/user/' + key, {
+                    headers: {'x-access-token': LocalStorage.getItem('token')}
+                })
             },
-            clearStorage: function () {
-                localStorage.clear();
+            feed: function (key) {
+                return $http.get(endPoint + '/feed/', {
+                    headers: {'x-access-token': LocalStorage.getItem('token')}
+                })
+            },
+            uploadFile: function (file) {
+                return Upload.upload({
+                    url: 'http://52.50.129.215:8020/api/v1/en/uploadFiles/',
+                    data: {file: file}
+                });
             }
         }
     }

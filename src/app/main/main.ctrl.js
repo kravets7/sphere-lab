@@ -6,7 +6,11 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($scope, $timeout, toastr) {
-
+    function MainController($scope, $timeout, toastr, LocalStorage, $state) {
+        $scope.logout = function () {
+            LocalStorage.removeItem('token');
+            LocalStorage.removeItem('id');
+            $state.go('auth');
+        }
     }
 })();

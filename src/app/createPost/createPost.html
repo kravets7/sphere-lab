@@ -1,0 +1,20 @@
+<form ng-submit="createPost()" name="myForm">
+
+    <md-input-container>
+        <input class="md-button md-raised md-primary" type="file" id="file" accept="image/*" ng-model="postFile" aria-label="file">
+    </md-input-container>
+    <br>
+    <md-card-avatar>
+        <img ng-src="{{postUrl}}"/>
+    </md-card-avatar>
+    <br>
+    <br>
+    <md-input-container>
+        <label>Post message</label>
+        <textarea type="text" rows="8" cols="40" ng-model="message" required></textarea>
+    </md-input-container>
+    <br>
+    <button ng-disabled="myForm.$invalid" type="submit" class="md-raised md-primary md-button md-ink-ripple">
+        Create post
+    </button>
+</form>

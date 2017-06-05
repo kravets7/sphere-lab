@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('sphereLab', ['ui.router', 'ngMaterial', 'toastr']);
+    .module('sphereLab', ['ui.router', 'ngMaterial', 'ngFileUpload', 'toastr']);
 
 })();
